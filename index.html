@@ -233,7 +233,14 @@ function buyNow(id){
   buyNowMode = true; buyNowItem = {id, qty:1};
   openCheckout();
 }
+  function resetCheckoutForm(){
+  document.getElementById('checkoutForm').reset();
+  const btn = document.getElementById('placeOrderBtn');
+  btn.disabled = false;
+  btn.textContent = document.getElementById('tabCard').classList.contains('active') ? 'Continue to Payment' : 'Place Order';
+}
 function openCheckout(){
+  resetCheckoutForm();
   document.getElementById('checkoutOverlay').classList.remove('hidden');
   document.getElementById('checkoutOverlay').classList.add('flex');
   document.getElementById('orderSuccess').classList.add('hidden');
